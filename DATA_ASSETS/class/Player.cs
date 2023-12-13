@@ -152,20 +152,8 @@ namespace DATA_ASSETS
                     Command command = comlist.First();
                     string[] options = tokens.Skip(1).ToArray();
 
-                    // If option list is not empty
-                    if (options.Any())
-                    {
-                        // For every option
-                        foreach (string option in options)
-                        {
-                            // Execute command from tokens after command
-                            command.Execute(this, option);
-                        }
-                    }
-                    else
-                    {
-                        command.Execute(this, "");
-                    }
+                    // Execute command from tokens after command
+                    command.Execute(this, options);
                 }
             }
         }

@@ -14,7 +14,7 @@ namespace DATA_ASSETS
             KEYS = new string[] { "quit", "exit" };
         }
 
-        public override void Execute(Player player, string option)
+        public override void Execute(Player player, string[] options)
         {
             // TODO: Make messages class and make goofy random goodbye messages
             GameManager.Display("You left the game.");

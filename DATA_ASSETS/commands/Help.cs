@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace DATA_ASSETS
 {
@@ -14,33 +15,38 @@ namespace DATA_ASSETS
             KEYS = new string[] { "help" };
         }
 
-        public override void Execute(Player player, string option)
+        public override void Execute(Player player, string[] options)
         {
-            // If player does not input an option
-            if (option == string.Empty)
+            switch (options.Length)
             {
-                // For every available command
-                foreach(Command command in WorldObjects.COMMANDS)
-                {
-                    // Print command and aliases
-                    Console.WriteLine($"{command.Info()}\n");
-                }
-            }
-
-            // If player inputs a command keystring
-            else
-            {
-                // For every available command
-                foreach (Command command in WorldObjects.COMMANDS)
-                {
-                    // If command key is called
-                    if (command.KEYS.Contains(option))
+                // No options
+                case 0:
+                    // For every available command
+                    foreach (Command command in WorldObjects.COMMANDS)
                     {
-                        // Print command, aliases, and options
+                        // Print command and aliases
                         Console.WriteLine($"{command.Info()}\n");
-                        // TODO: Print command options
                     }
-                }
+                    break;
+
+                // Multiple options
+                default:
+                    // For every option inputted
+                    foreach (string option in options)
+                    {
+                        // For every available command
+                        foreach (Command command in WorldObjects.COMMANDS)
+                        {
+                            // If command key is called
+                            if (command.KEYS.Contains(option))
+                            {
+                                // Print command, aliases, and options
+                                Console.WriteLine($"{command.Info()}\n");
+                                // TODO: Print command options
+                            }
+                        }
+                    }
+                    break;
             }
         }
     }
