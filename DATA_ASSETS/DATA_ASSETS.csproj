@@ -59,7 +59,7 @@
     <Compile Include="interface\IQuestion.cs" />
     <Compile Include="interface\IThing.cs" />
     <Compile Include="interface\IStat.cs" />
-    <Compile Include="commands\Answer.cs" />
+    <Compile Include="commands\Input.cs" />
     <Compile Include="class\Player.cs" />
     <Compile Include="class\Item.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

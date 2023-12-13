@@ -17,13 +17,13 @@ namespace DATA_ASSETS
         public Actor() : base()
         {
             // Set generic HP (0, 0)
-            HP = new Stat(WorldObjects._worldStats[0]);
+            HP = new Stat(WorldObjects.STATS[0]);
         }
 
         public Actor(int id, string name, int hpmax) : base(id, name)
         {
             // Set HP
-            HP = new Stat(WorldObjects._worldStats[0], hpmax, 0, true);
+            HP = new Stat(WorldObjects.STATS[0], hpmax, 0, true);
         }
 
         public Actor(Actor basis) : base (basis.ID, basis.NAME)

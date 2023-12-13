@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace DATA_ASSETS
 {
-    internal class Answer : Command
+    internal class Input : Command
     {
-        public Answer()
+        public Input()
         {
-            NAME = "Answer";
-            KEYS = new string[] { "answer", "interact", "=" };
+            NAME = "Input";
+            KEYS = new string[] { "input", "answer", "interact", "=" };
         }
 
         public override void Execute(Player player, string option)

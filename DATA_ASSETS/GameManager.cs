@@ -40,6 +40,53 @@ namespace DATA_ASSETS
             }
         }
 
+        static Player MakePlayer()
+        {
+            // Enter player name
+            bool blockname = false;
+            string name = string.Empty;
+
+            do
+            {
+                // Clear the console
+                Console.Clear();
+
+                // Print prompt if name was entered incorrectly
+                if (blockname == true)
+                {
+                    Console.WriteLine("Please only input letters and digits");
+                }
+
+                // Set blockname to false
+                blockname = false;
+
+                // Prompt for name
+                Console.Write("Enter your name: ");
+
+                // Get inputted name
+                name = Console.ReadLine();
+
+                // loop through every letter in the inputted name
+                foreach(char letter in name)
+                {
+                    // If there is a special character
+                    if (!char.IsLetterOrDigit(letter))
+                    {
+                        // Block the name
+                        blockname = true;
+                    }
+                }
+
+            // While the name is blocked
+            } while (blockname);
+
+            // Make the player with the name
+            Player player = new Player(0, name);
+
+            // Return player
+            return player;
+        }
+
         static void SetUp()
         {
             // Load game objects
@@ -49,10 +96,9 @@ namespace DATA_ASSETS
             settings = new Settings();
 
             // Get player name
-            // TODO: Player maker class
+            player = MakePlayer();
 
             // Create a player
-            player = new Player(0, "Test");
             player.EnterRoom(new Room());
 
             // Set game to running

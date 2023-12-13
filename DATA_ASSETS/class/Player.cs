@@ -141,7 +141,7 @@ namespace DATA_ASSETS
                 }
 
                 // Get command from first token
-                var comlist = from com in WorldObjects._worldCommands
+                var comlist = from com in WorldObjects.COMMANDS
                               where com.KEYS.Contains(tokens.ToArray()[0])
                               select com;
 

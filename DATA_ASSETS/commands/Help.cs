@@ -20,7 +20,7 @@ namespace DATA_ASSETS
             if (option == string.Empty)
             {
                 // For every available command
-                foreach(Command command in WorldObjects._worldCommands)
+                foreach(Command command in WorldObjects.COMMANDS)
                 {
                     // Print command and aliases
                     Console.WriteLine($"{command.Info()}\n");
@@ -31,7 +31,7 @@ namespace DATA_ASSETS
             else
             {
                 // For every available command
-                foreach (Command command in WorldObjects._worldCommands)
+                foreach (Command command in WorldObjects.COMMANDS)
                 {
                     // If command key is called
                     if (command.KEYS.Contains(option))

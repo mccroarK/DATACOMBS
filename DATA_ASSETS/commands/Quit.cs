@@ -17,8 +17,7 @@ namespace DATA_ASSETS
         public override void Execute(Player player, string option)
         {
             // TODO: Make messages class and make goofy random goodbye messages
-            GameManager.Display("You leave the game.");
-            Console.ReadLine();
+            GameManager.Display("You left the game.");
             GameManager.Running = false;
         }
     }
