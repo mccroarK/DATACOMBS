@@ -11,6 +11,6 @@ namespace DATA_ASSETS
         string NAME { get; }
         string[] KEYS { get; }
         string Info();
-        void Execute(Player player, string option);
+        void Execute(Player player, string[] options);
     }
 }

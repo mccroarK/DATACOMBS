@@ -14,17 +14,31 @@ namespace DATA_ASSETS
             KEYS = new string[] { "input", "answer", "interact", "=" };
         }
 
-        public override void Execute(Player player, string option)
+        public override void Execute(Player player, string[] options)
         {
-            // For every interactable thing in the current room
-            foreach(IInteractable thing in player.ROOM.THINGS.OfType<IInteractable>())
+            switch (options.Length)
             {
-                // If the interactable answer matches the player answer
-                if (thing.QUESTION.ANSWER == option)
-                {
-                    // Activate thing
-                    thing.OnInteract(player);
-                }
+                // No option
+                case 0:
+                    GameManager.Display("Enter an option");
+                    break;
+
+                // Multiple options
+                default:
+                    foreach (string option in options)
+                    {
+                        // For every interactable thing in the current room
+                        foreach (IInteractable thing in player.ROOM.THINGS.OfType<IInteractable>())
+                        {
+                            // If the interactable answer matches the player answer
+                            if (thing.QUESTION.ANSWER == option)
+                            {
+                                // Activate thing
+                                thing.OnInteract(player);
+                            }
+                        }
+                    }
+                    break;
             }
         }
     }

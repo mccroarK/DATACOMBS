@@ -155,16 +155,10 @@ namespace DATA_ASSETS
                     // If option list is not empty
                     if (options.Any())
                     {
-                        // For every option
-                        foreach (string option in options)
-                        {
-                            // Execute command from tokens after command
-                            command.Execute(this, option);
-                        }
-                    }
-                    else
-                    {
-                        command.Execute(this, "");
+                        Console.WriteLine(command.NAME);
+                        Console.ReadLine();
+                        // Execute command from tokens after command
+                        command.Execute(this, options);
                     }
                 }
             }

@@ -37,6 +37,6 @@ namespace DATA_ASSETS
             // Return info string
             return info;
         }
-        public abstract void Execute(Player player, string option);
+        public abstract void Execute(Player player, string[] options);
     }
 }

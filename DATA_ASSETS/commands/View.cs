@@ -12,29 +12,44 @@ namespace DATA_ASSETS
             KEYS = new string[] { "view", "stats", "menu", "list" };
         }
 
-        public override void Execute(Player player, string option)
+        public override void Execute(Player player, string[] options)
         {
-            switch (option)
+            switch (options.Length)
             {
-                // View missed questions
-                case "missed":
-                    //Application.Run()
-                    break;
-
-                // View stats of room actors
-                case "room":
-                    Application.Run(new RoomForm(player.ROOM.Info()));
-                    break;
-
-                // View own stats
-                case "self":
-                case "":
+                // No option
+                case 0:
+                    // Display player stats
                     Application.Run(new ActorForm(player.Info()));
                     break;
 
-                // View help
+                // Multiple options
                 default:
-                    Console.WriteLine("Options: self, room, missed");
+                    foreach (string option in options)
+                    {
+                        switch (option)
+                        {
+                            // View missed questions
+                            case "missed":
+                                //Application.Run()
+                                break;
+
+                            // View stats of room actors
+                            case "room":
+                                Application.Run(new RoomForm(player.ROOM.Info()));
+                                break;
+
+                            // View own stats
+                            case "self":
+                            case "":
+                                Application.Run(new ActorForm(player.Info()));
+                                break;
+
+                            // View help
+                            default:
+                                Console.WriteLine("Options: self, room, missed");
+                                break;
+                        }
+                    }
                     break;
             }
         }
