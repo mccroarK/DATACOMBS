@@ -152,14 +152,8 @@ namespace DATA_ASSETS
                     Command command = comlist.First();
                     string[] options = tokens.Skip(1).ToArray();
 
-                    // If option list is not empty
-                    if (options.Any())
-                    {
-                        Console.WriteLine(command.NAME);
-                        Console.ReadLine();
-                        // Execute command from tokens after command
-                        command.Execute(this, options);
-                    }
+                    // Execute command from tokens after command
+                    command.Execute(this, options);
                 }
             }
         }
